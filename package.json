@@ -1,0 +1,63 @@
+{
+  "name": "lodash-imports",
+  "version": "0.0.1",
+  "packageManager": "pnpm@9.5.0",
+  "description": "Lodash auto import options",
+  "scripts": {
+    "stub": "unbuild --stub",
+    "build": "unbuild",
+    "lint": "eslint .",
+    "test": "vitest",
+    "release": "bumpp"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/imba97/lodash-imports.git"
+  },
+  "keywords": [
+    "lodash",
+    "lodash-es",
+    "auto-import",
+    "unimport"
+  ],
+  "author": "imba97",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/imba97/lodash-imports/issues"
+  },
+  "homepage": "https://github.com/imba97/lodash-imports#readme",
+  "sideEffects": false,
+  "files": [
+    "dist"
+  ],
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.mjs",
+      "require": "./dist/index.cjs"
+    },
+    "./lodash": {
+      "types": "./dist/lodash.d.ts",
+      "import": "./dist/lodash.mjs",
+      "require": "./dist/lodash.cjs"
+    }
+  },
+  "main": "./dist/index.mjs",
+  "module": "./dist/index.mjs",
+  "types": "./dist/index.d.ts",
+  "dependencies": {
+    "@types/lodash-es": "^4.17.12",
+    "local-pkg": "^0.5.0",
+    "lodash-es": "^4.17.21"
+  },
+  "devDependencies": {
+    "@imba97/eslint-config": "^0.0.2",
+    "@types/node": "^22.2.0",
+    "bumpp": "^9.5.1",
+    "eslint": "npm:eslint-ts-patch@9.8.0-1",
+    "eslint-ts-patch": "9.8.0-1",
+    "typescript": "^5.5.4",
+    "unbuild": "^2.0.0",
+    "vitest": "^2.0.5"
+  }
+}
