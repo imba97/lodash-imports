@@ -7,6 +7,7 @@ import type { LodashImportsOptions } from './types'
 
 export default function (options: LodashImportsOptions = {}) {
   const {
+    hasFrom = false,
     prefix = '_',
     upperAfterPrefix = false,
     exclude = []
@@ -14,23 +15,33 @@ export default function (options: LodashImportsOptions = {}) {
 
   const mergedExclude: (string | RegExp)[] = [...defaultExclude, ...exclude]
 
+  const from = resolveModule('lodash-imports/lodash', {
+    platform: 'posix'
+  })
+
   return {
-    from: resolveModule('lodash-imports/lodash', {
-      platform: 'posix'
-    }),
+    from,
     imports: Object.keys(lodash)
       .filter((key) => {
         return !mergedExclude.some((excluded) => {
           if (typeof excluded === 'string') {
             return key === excluded
-          } else {
+          }
+          else {
             return excluded.test(key)
           }
         })
       })
-      .map(key => ({
-        name: key,
-        as: `${prefix}${upperAfterPrefix ? lodash.upperFirst(key) : key}`,
-      }))
+      .map(key => (
+        lodash.assign(
+          {
+            name: key,
+            as: `${prefix}${upperAfterPrefix ? lodash.upperFirst(key) : key}`
+          },
+          hasFrom
+            ? { from }
+            : {}
+        ))
+      )
   }
 }

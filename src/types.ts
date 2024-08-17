@@ -1,5 +1,10 @@
 export interface LodashImportsOptions {
   /**
+   * Has from field
+   */
+  hasFrom?: boolean
+
+  /**
    * Prefix for lodash imports
    */
   prefix?: string
