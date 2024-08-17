@@ -1,6 +1,6 @@
 {
   "name": "lodash-imports",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "packageManager": "pnpm@9.5.0",
   "description": "Lodash auto import options",
   "author": "imba97",
