@@ -1,13 +1,11 @@
 import { resolveModule } from 'local-pkg'
 import * as lodash from 'lodash-es'
 
-import type { InlinePreset } from 'unimport'
-
 import defaultExclude from './exclude'
 
-import type { LodashImportsOptions } from './types'
+import type { LodashImportsOptions, LodashImportsResult } from './types'
 
-export default function (options: LodashImportsOptions = {}) {
+export default function (options: LodashImportsOptions = {}): LodashImportsResult {
   const {
     hasFrom = false,
     prefix = '_',
@@ -19,7 +17,7 @@ export default function (options: LodashImportsOptions = {}) {
 
   const from = resolveModule('lodash-imports/lodash', {
     platform: 'posix'
-  })
+  }) || 'lodash-es'
 
   return {
     from,
@@ -45,5 +43,5 @@ export default function (options: LodashImportsOptions = {}) {
             : {}
         ))
       )
-  } as InlinePreset
+  }
 }

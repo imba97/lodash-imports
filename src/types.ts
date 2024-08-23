@@ -19,3 +19,12 @@ export interface LodashImportsOptions {
    */
   exclude?: (string | RegExp)[]
 }
+
+export interface LodashImportsResult {
+  from: string
+  imports: {
+    name: string
+    as: string
+    from?: string
+  }[]
+}
