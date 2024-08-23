@@ -57,6 +57,7 @@
     "eslint": "9.9.0",
     "typescript": "^5.5.4",
     "unbuild": "^2.0.0",
+    "unimport": "^3.11.0",
     "vitest": "^2.0.5"
   }
 }

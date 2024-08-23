@@ -1,6 +1,8 @@
 import { resolveModule } from 'local-pkg'
 import * as lodash from 'lodash-es'
 
+import type { InlinePreset } from 'unimport'
+
 import defaultExclude from './exclude'
 
 import type { LodashImportsOptions } from './types'
@@ -43,5 +45,5 @@ export default function (options: LodashImportsOptions = {}) {
             : {}
         ))
       )
-  }
+  } as InlinePreset
 }
