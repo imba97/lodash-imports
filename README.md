@@ -35,6 +35,11 @@ export default defineConfig({
 ```ts
 interface LodashImportsOptions {
   /**
+   * Has from field
+   */
+  hasFrom?: boolean
+
+  /**
    * Prefix for lodash imports
    */
   prefix?: string
